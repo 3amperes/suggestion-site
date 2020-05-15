@@ -11,9 +11,18 @@ export default function Home() {
 
       <h1>Suggestion with next</h1>
 
-      <p>
-        <Link href="/rents">go to rents page</Link>
-      </p>
+      <ul>
+        <li>
+          <Link href="/rents">
+            <a>go to rents page</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/rent/[slug]" as="/rent/ref1">
+            <a>go to ref1</a>
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 }
