@@ -20,17 +20,38 @@ const Rent = ({ slug, title }) => {
   );
 };
 
-const query = groq`*[_type == "rent" && rentReference == $slug][0]{
+// This function gets called at build time on server-side.
+// It won't be called on client-side, so you can even do
+// direct database queries. See the "Technical details" section.
+export async function getStaticProps({ params }) {
+  const query = groq`*[_type == "rent" && rentReference == $slug][0]{
     "slug": rentReference,
     date,
     "title": property->title,
   }`;
+  const props = await client.fetch(query, { slug: params.slug });
 
-Rent.getInitialProps = async function (context) {
-  // It's important to default the slug so that it doesn't return "undefined"
-  const { slug = '' } = context.query;
-  return await client.fetch(query, { slug });
-};
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props,
+  };
+}
+
+export async function getStaticPaths() {
+  const allRents = await client.fetch(
+    `*[_type == "rent"]{ 'slug': rentReference }`
+  );
+  return {
+    paths:
+      allRents?.map((post) => ({
+        params: {
+          slug: post.slug,
+        },
+      })) || [],
+    fallback: true,
+  };
+}
 
 Rent.propTypes = {
   slug: PropTypes.string,
