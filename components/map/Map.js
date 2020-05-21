@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ReactMapGL, {
   Popup,
@@ -7,9 +7,17 @@ import ReactMapGL, {
   ScaleControl,
   WebMercatorViewport,
 } from 'react-map-gl';
+
 import { lineString } from '@turf/helpers';
 import bbox from '@turf/bbox';
 import Pins from './Pins';
+
+// do this
+let Geocoder;
+
+if (typeof window !== 'undefined') {
+  Geocoder = require('react-map-gl-geocoder').default;
+}
 
 const DEFAULT_LOCATION = {
   latitude: 48.117268,
@@ -38,6 +46,7 @@ const scaleControlStyle = {
 };
 
 function Map({ places }) {
+  const mapRef = useRef(null);
   const [viewport, setViewport] = useState({
     width: 600,
     height: 400,
@@ -46,6 +55,10 @@ function Map({ places }) {
   });
 
   const [selectedPlace, setSelectedPlace] = useState(null);
+
+  const handleViewportChange = (nextViewport) => {
+    setViewport({ ...viewport, ...nextViewport });
+  };
 
   const fitViewportFromPlaces = useCallback((places) => {
     const feature = lineString(
@@ -95,7 +108,8 @@ function Map({ places }) {
   return (
     <ReactMapGL
       {...viewport}
-      onViewportChange={(nextViewport) => setViewport(nextViewport)}
+      ref={mapRef}
+      onViewportChange={handleViewportChange}
       mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
     >
       <Pins places={places} onClick={setSelectedPlace} />
@@ -122,6 +136,13 @@ function Map({ places }) {
       <div style={scaleControlStyle}>
         <ScaleControl />
       </div>
+      <Geocoder
+        mapRef={mapRef}
+        onResult={(d) => console.log(d)}
+        onViewportChange={handleViewportChange}
+        mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
+        position="top-right"
+      />
     </ReactMapGL>
   );
 }

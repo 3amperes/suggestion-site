@@ -35,6 +35,10 @@ function Rents({ items = [] }) {
     <div>
       <Head>
         <title>Rents • Suggestion</title>
+        <link
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css"
+          rel="stylesheet"
+        />
       </Head>
       <h1>Suggestion • Rents</h1>
       <Link href="/">
