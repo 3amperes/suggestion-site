@@ -1,4 +1,5 @@
 // rents.js
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Head from 'next/head';
@@ -11,39 +12,52 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 400px;
   grid-template-rows: 600px;
+  max-width: 1080px;
+  margin: auto;
 `;
 
 function Rents({ items = [] }) {
+  const [filteredItems, setFilteredItems] = useState(items.slice(0, 2));
+  const [hasNext, setHasNext] = useState(true);
+  const places = filteredItems.map(({ coordinates: { lat, lng }, name }) => ({
+    lat,
+    lng,
+    name,
+  }));
+
+  const onClick = () => {
+    const newItems = hasNext ? items.slice(2, 4) : items.slice(0, 2);
+    setFilteredItems(newItems);
+    setHasNext(!hasNext);
+  };
+
   return (
     <div>
       <Head>
         <title>Rents • Suggestion</title>
       </Head>
-      <h1>Rents</h1>
+      <h1>Suggestion • Rents</h1>
       <Link href="/">
-        <a>Back</a>
+        <a>Go Back</a>
       </Link>
 
       <Wrapper>
-        <Map
-          places={items.map(({ coordinates: { lat, lng }, name }) => ({
-            lat,
-            lng,
-            name,
-          }))}
-        />
+        <Map places={places} />
+        <div>
+          <ul>
+            {filteredItems.map(({ rentReference, name }, index) => {
+              return (
+                <li key={index}>
+                  <Link href={`/rent/[slug]`} as={`/rent/${rentReference}`}>
+                    <a>{name}</a>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
 
-        <ul>
-          {items.map(({ rentReference }, index) => {
-            return (
-              <li key={index}>
-                <Link href={`/rent/[slug]`} as={`/rent/${rentReference}`}>
-                  <a>{rentReference}</a>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+          <button onClick={onClick}>{hasNext ? 'next' : 'prev'}</button>
+        </div>
       </Wrapper>
     </div>
   );

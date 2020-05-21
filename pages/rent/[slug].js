@@ -13,7 +13,7 @@ const Rent = ({ slug, title }) => {
       </Head>
       <p>{slug}</p>
       <h1>{title}</h1>
-      <Link href="/">
+      <Link href="/rents">
         <a>Back</a>
       </Link>
     </article>

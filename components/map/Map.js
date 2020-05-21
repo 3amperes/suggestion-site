@@ -1,37 +1,83 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import ReactMapGL, {
+  Popup,
+  NavigationControl,
+  FullscreenControl,
+  ScaleControl,
+  WebMercatorViewport,
+} from 'react-map-gl';
+import { lineString } from '@turf/helpers';
+import bbox from '@turf/bbox';
+import Pins from './Pins';
 
 const DEFAULT_LOCATION = {
   latitude: 48.117268,
   longitude: -1.677793,
 };
 
-function MarkerIcon(props) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" {...props}>
-      <defs />
-      <circle
-        cx="8"
-        cy="8"
-        r="8"
-        fill="#28EFD1"
-        fillOpacity="0.9"
-        stroke="#FFF"
-      />
-    </svg>
-  );
-}
+const fullscreenControlStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  padding: '10px',
+};
+
+const navStyle = {
+  position: 'absolute',
+  top: 36,
+  left: 0,
+  padding: '10px',
+};
+
+const scaleControlStyle = {
+  position: 'absolute',
+  bottom: 36,
+  left: 0,
+  padding: '10px',
+};
 
 function Map({ places }) {
   const [viewport, setViewport] = useState({
-    width: '100%',
-    height: '100%',
-    zoom: 11,
+    width: 600,
+    height: 400,
+    zoom: 12,
     ...DEFAULT_LOCATION,
   });
 
   const [selectedPlace, setSelectedPlace] = useState(null);
+
+  const fitViewportFromPlaces = useCallback((places) => {
+    const feature = lineString(
+      places.map(({ lat, lng }) => [lng, lat]),
+      { name: 'bounds' }
+    );
+    const [minLng, minLat, maxLng, maxLat] = bbox(feature);
+
+    const { longitude, latitude, zoom } = new WebMercatorViewport(
+      viewport
+    ).fitBounds(
+      [
+        [minLng, minLat],
+        [maxLng, maxLat],
+      ],
+      {
+        padding: 80,
+      }
+    );
+
+    setViewport({
+      ...viewport,
+      longitude,
+      latitude,
+      zoom,
+      transitionDuration: 1000,
+    });
+  }, []);
+
+  useEffect(() => {
+    fitViewportFromPlaces(places);
+  }, [places, fitViewportFromPlaces]);
 
   useEffect(() => {
     const listener = (e) => {
@@ -52,21 +98,12 @@ function Map({ places }) {
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
       mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
     >
-      {places &&
-        places.map((place, index) => {
-          return (
-            <Marker key={index} latitude={place.lat} longitude={place.lng}>
-              <MarkerIcon
-                onClick={(e) => {
-                  e.preventDefault(e);
-                  setSelectedPlace(place);
-                }}
-              />
-            </Marker>
-          );
-        })}
+      <Pins places={places} onClick={setSelectedPlace} />
       {selectedPlace && (
         <Popup
+          tipSize={5}
+          anchor="top"
+          closeOnClick={false}
           latitude={selectedPlace.lat}
           longitude={selectedPlace.lng}
           onClose={() => setSelectedPlace(null)}
@@ -76,6 +113,15 @@ function Map({ places }) {
           </div>
         </Popup>
       )}
+      <div style={fullscreenControlStyle}>
+        <FullscreenControl />
+      </div>
+      <div style={navStyle}>
+        <NavigationControl />
+      </div>
+      <div style={scaleControlStyle}>
+        <ScaleControl />
+      </div>
     </ReactMapGL>
   );
 }
