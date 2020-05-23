@@ -9,17 +9,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Suggestion with next</h1>
+      <h1>Suggestion • page d&apos;accueil</h1>
 
       <ul>
         <li>
           <Link href="/rents">
             <a>go to rents page</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/rent/[slug]" as="/rent/ref1">
-            <a>go to ref1</a>
           </Link>
         </li>
       </ul>

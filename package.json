@@ -10,10 +10,14 @@
   },
   "dependencies": {
     "@sanity/client": "^1.149.13",
+    "@turf/bbox": "^6.0.1",
+    "@turf/helpers": "^6.1.4",
     "groq": "^1.149.0",
     "next": "9.4.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-map-gl": "^5.2.5",
+    "react-map-gl-geocoder": "^2.0.11",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
