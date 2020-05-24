@@ -44,5 +44,13 @@ fields:
     schema:
       format: markdown
   label: description
+- name: block
+  type: blocks
+  label: block
+  template_types:
+  - post
+  config:
+    min: 
+    max: 
 pages:
 - posts/first-post.md
