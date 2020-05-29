@@ -136,13 +136,13 @@ function Map({ places }) {
       <div style={scaleControlStyle}>
         <ScaleControl />
       </div>
-      <Geocoder
+      {/* <Geocoder
         mapRef={mapRef}
         onResult={(d) => console.log(d)}
         onViewportChange={handleViewportChange}
         mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
         position="top-right"
-      />
+      /> */}
     </ReactMapGL>
   );
 }

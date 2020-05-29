@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Head from 'next/head';
 import Link from 'next/link';
-import groq from 'groq';
-import client from '../client';
-import Map from '../components/map';
+import { getRents } from '@lib/api';
+import Map from '@components/map';
 
 const Wrapper = styled.div`
   display: grid;
@@ -49,10 +48,10 @@ function Rents({ items = [] }) {
         <Map places={places} />
         <div>
           <ul>
-            {filteredItems.map(({ rentReference, name }, index) => {
+            {filteredItems.map(({ _id, name }, index) => {
               return (
                 <li key={index}>
-                  <Link href={`/rent/[slug]`} as={`/rent/${rentReference}`}>
+                  <Link href={`/rent/[id]`} as={`/rent/${_id}`}>
                     <a>{name}</a>
                   </Link>
                 </li>
@@ -73,13 +72,7 @@ function Rents({ items = [] }) {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const query = groq`*[_type == "rent"]|order(publishedAt desc){
-    rentReference,
-    "name": property->title,
-    "coordinates": property->location
-  }`;
-  const items = await client.fetch(query);
-
+  const items = await getRents();
   // By returning { props: posts }, the Blog component
   // will receive `posts` as a prop at build time
   return {
