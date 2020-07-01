@@ -1,84 +1,75 @@
+import { useState } from 'react';
 import Link from 'next/link';
+import Logo from '@components/Logo';
+import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
+
+const MenuItem = ({ path, label }) => {
+  const router = useRouter();
+
+  const borderColor =
+    router.asPath === path ? 'border-greyishBrownTwo' : 'border-transparent';
+
+  const classes = `py-xs block border-b-2 ${borderColor} hover:border-pumpkin font-semibold lg:font-body font-display lg:text-sm text-xl transition duration-300 ease-in-out`;
+
+  return (
+    <li className="px-lg flex items-center lg:mb-0 mb-lg">
+      <Link href={path}>
+        <a className={classes}>{label}</a>
+      </Link>
+    </li>
+  );
+};
+
+MenuItem.propTypes = {
+  path: PropTypes.string,
+  label: PropTypes.string.isRequired,
+};
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="lg:h-20 lg:px-16 px-8 flex flex-wrap items-center lg:py-0 py-2">
-      <div className="flex-1 flex justify-between items-center">
+    <nav className="absolute w-full top-0 z-10 text-greyishBrownTwo bg-white">
+      <div className="container flex items-center" style={{ height: 68 }}>
         <Link href="/">
-          <a>
-            <img src="/suggestion.svg" alt="suggestion logo" />
+          <a className="fill-current mr-auto">
+            <Logo className="hidden md:block" />
+            <Logo isFull={false} width={16} className="md:hidden" />
           </a>
         </Link>
-      </div>
 
-      <label htmlFor="menu-toggle" className="cursor-pointer lg:hidden block">
-        <svg
-          className="fill-current text-gray-900"
-          viewBox="0 0 100 80"
-          width="40"
-          height="40"
+        <div
+          className={`navigation flex-1 flex flex-col lg:flex-row items-center lg:justify-end justify-around lg:relative absolute w-screen h-screen lg:w-auto lg:h-auto inset-0 bg-white z-0 transform ${
+            isOpen ? 'translate-y-0' : '-translate-y-full'
+          } lg:translate-y-0`}
         >
-          <rect width="100" height="20"></rect>
-          <rect y="30" width="100" height="20"></rect>
-          <rect y="60" width="100" height="20"></rect>
-        </svg>
-      </label>
-      <input type="checkbox" className="hidden" id="menu-toggle" />
-      <div
-        className="hidden lg:flex lg:items-center lg:w-auto w-full"
-        id="menu"
-      >
-        <nav>
-          <ul className="lg:flex item-center justify-between text-base text-gray-700 pt-4  lg:pt-0">
-            <li>
-              <Link href="/">
-                <a className="lg:py-2 py-3 block border-b-2 border-transparent hover:border-indigo-400">
-                  Gestion locative
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a className="lg:py-2 py-3 block border-b-2 border-transparent hover:border-indigo-400">
-                  Gestion de patrimoine
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a className="lg:py-2 py-3 block border-b-2 border-transparent hover:border-indigo-400">
-                  Présentation
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a className="lg:py-2 py-3 block border-b-2 border-transparent hover:border-indigo-400">
-                  Offres de location
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a className="lg:py-2 py-3 block border-b-2 border-transparent hover:border-indigo-400">
-                  Honoraires
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a className="lg:py-2 py-3 block border-b-2 border-transparent hover:border-indigo-400">
-                  Mon compte
-                </a>
-              </Link>
-            </li>
+          <Logo className="fill-current lg:hidden" />
+          <ul className="flex flex-col lg:flex-row items-center justify-center mx-auto">
+            <MenuItem path="/location" label="Gestion locative" />
+            <MenuItem path="/presentation" label="Présentation" />
+            <MenuItem path="/honoraires" label="Honoraires" />
+            <MenuItem path="/pro" label="Accès Propriétaires" />
+            <MenuItem path="/loc" label="Accès Locataire" />
           </ul>
-        </nav>
-        <div>
-          <button>Contactez-nous</button>
+          <a className="btn">Contactez-nous</a>
         </div>
+
+        <button
+          className={`menu-btn ${
+            isOpen && 'menu-btn-active'
+          } lg:hidden cursor-pointer py-lg z-10`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div
+          className="hidden lg:flex lg:items-center lg:w-auto w-full"
+          id="menu"
+        ></div>
       </div>
-    </header>
+    </nav>
   );
 };
 
