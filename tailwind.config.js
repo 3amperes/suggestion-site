@@ -27,6 +27,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       pumpkin: '#e87a00',
+      greyishBrown: '#494949',
       greyishBrownTwo: '#535353',
       battleshipGrey: '#6f7274',
       literalDown: '#d8d8d8',
@@ -37,10 +38,14 @@ module.exports = {
     maxWidth: (theme, { breakpoints }) => ({
       none: 'none',
       320: '320px',
+      540: '540px',
       sm: '24rem',
       md: '28rem',
       lg: '32rem',
       xl: '36rem',
+      '1/2': '50%',
+      '1/3': '33%',
+      '1/4': '25%',
       full: '100%',
       ...breakpoints(theme('screens')),
     }),

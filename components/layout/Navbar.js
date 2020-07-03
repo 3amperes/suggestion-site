@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Logo from '@components/Logo';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 
 const MenuItem = ({ path, label }) => {
   const router = useRouter();
@@ -28,6 +28,19 @@ MenuItem.propTypes = {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // close menu on route change
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsOpen(false);
+    };
+
+    Router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      Router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, []);
+
   return (
     <nav className="absolute w-full top-0 z-10 text-greyishBrownTwo bg-white">
       <div className="container flex items-center" style={{ height: 68 }}>
@@ -45,13 +58,15 @@ const Navbar = () => {
         >
           <Logo className="fill-current lg:hidden" />
           <ul className="flex flex-col lg:flex-row items-center justify-center mx-auto">
-            <MenuItem path="/location" label="Gestion locative" />
+            <MenuItem path="/gestion-locative" label="Gestion locative" />
             <MenuItem path="/presentation" label="Présentation" />
             <MenuItem path="/honoraires" label="Honoraires" />
             <MenuItem path="/pro" label="Accès Propriétaires" />
             <MenuItem path="/loc" label="Accès Locataire" />
           </ul>
-          <a className="btn">Contactez-nous</a>
+          <a className="btn">
+            <Link href="/contact">Contactez-nous</Link>
+          </a>
         </div>
 
         <button

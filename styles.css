@@ -14,19 +14,72 @@ h2 {
   @apply text-2xl font-display font-bold mb-2xl;
 }
 
-p {
-  @apply mb-2xl;
+h3 {
+  @apply text-xl font-display font-bold mb-xs;
+}
+
+p + p {
+  @apply mt-2xl;
+}
+
+input {
+  @apply appearance-none bg-transparent;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'] {
+  @apply border-b py-sm leading-tight;
+}
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='tel']:focus {
+  @apply outline-none border-pumpkin;
+}
+
+.radio {
+  @apply flex mb-md cursor-pointer;
+}
+
+input[type='radio'] ~ svg .active {
+  @apply opacity-0;
+}
+input[type='radio']:checked ~ svg .active {
+  @apply opacity-100;
 }
 
 @tailwind components;
 
+.number {
+  @apply inline-block text-pumpkin mr-lg;
+}
+
+.list {
+  @apply pb-xl pl-xl;
+}
+
+.list li {
+  @apply mb-xl relative;
+}
+.list li:before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  left: -1.5em;
+  top: 0.5em;
+  @apply bg-pumpkin absolute;
+}
+
 .surtitle {
-  @apply text-xs uppercase mb-0;
+  @apply text-xs font-semibold uppercase mb-0;
 }
 
 .link,
-.btn {
-  @apply transition duration-300 ease-in-out;
+.btn,
+.btn:after,
+input {
+  @apply transition duration-300 ease-in-out cursor-pointer;
 }
 
 .link {
@@ -42,15 +95,32 @@ p {
 }
 
 .btn {
-  @apply font-semibold py-lg px-2xl bg-pumpkin text-white text-sm;
+  @apply inline-block font-semibold py-lg px-2xl bg-pumpkin text-white text-sm relative;
 }
 
-.btn:hover {
+.btn:after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 31px;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 31'%3E%3Cdefs/%3E%3Cpath fill='%23e87a00' d='M0 0h24L0 31z'/%3E%3C/svg%3E");
+  @apply absolute top-0 right-0 bg-pumpkin;
+  transform: translateX(100%);
+}
+
+.btn:hover,
+.btn:hover:after {
   @apply bg-greyishBrownTwo;
 }
 
 .btn:focus {
   @apply bg-battleshipGrey;
+}
+
+.pictogramme {
+  width: 152px;
+  height: 152px;
+  @apply bg-white mx-auto flex items-center justify-center;
 }
 
 .navigation {
@@ -106,6 +176,10 @@ p {
   */
 .menu-btn-active span:nth-last-child(1) {
   transform: rotate(-45deg) translate(-2px, 0px);
+}
+
+table th {
+  @apply text-left text-greyishBrown font-semibold border-b-2 border-silver text-xs uppercase mb-0 py-xs;
 }
 
 @tailwind utilities;

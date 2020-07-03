@@ -58,7 +58,9 @@ const Footer = () => {
       <footer className="text-center py-xl bg-silver text-xs">
         ©2020 - Suggestion, gestion immobilière et de patrimoine à
         Rennes&nbsp;—&nbsp;
-        <a className="underline cursor-pointer">Mention Légales</a>
+        <a className="underline cursor-pointer">
+          <Link href="/mentions">Mention Légales</Link>
+        </a>
       </footer>
     </>
   );
