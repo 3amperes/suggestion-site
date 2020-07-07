@@ -113,7 +113,8 @@ input {
   @apply bg-greyishBrownTwo;
 }
 
-.btn:focus {
+.btn:focus,
+.btn:focus:after {
   @apply bg-battleshipGrey;
 }
 
@@ -183,3 +184,7 @@ table th {
 }
 
 @tailwind utilities;
+
+.image-wrapper {
+  @apply relative overflow-hidden;
+}

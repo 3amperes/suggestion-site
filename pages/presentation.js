@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Hero from '@components/layout/Hero';
 import Services from '@components/layout/Services';
+import Image from '@components/Image';
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
       <Hero
         surTitle="Prenons le temps et"
         title="Faisons connaissance"
-        imgPath="/images/presentation/intro"
+        imgPath="presentation/intro@2x.jpg"
       />
 
       <section className="mb-4xl">
@@ -45,11 +46,9 @@ export default function Home() {
         <div className="container">
           <div className="flex md:flex-row flex-col items-start -mx-lg">
             <div className="xl:w-7/24 lg:ml-3col md:w-1/3 w-full px-lg">
-              <div style={{ height: 539 }}>
-                <img
-                  src="/images/presentation/portrait.jpg"
-                  srcSet="/images/presentation/portrait@2x.jpg 2x, /images/presentation/portrait@3x.jpg 3x"
-                  alt=""
+              <div style={{ height: 539 }} className="image-wrapper">
+                <Image
+                  path="presentation/portrait@2x.jpg"
                   className="object-none h-full w-full"
                 />
               </div>

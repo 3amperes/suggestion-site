@@ -4,25 +4,32 @@ import Logo from '@components/Logo';
 import PropTypes from 'prop-types';
 import Router, { useRouter } from 'next/router';
 
-const MenuItem = ({ path, label }) => {
+const MenuItem = ({ path, href, label }) => {
   const router = useRouter();
 
   const borderColor =
     router.asPath === path ? 'border-greyishBrownTwo' : 'border-transparent';
 
-  const classes = `py-xs block border-b-2 ${borderColor} hover:border-pumpkin font-semibold lg:font-body font-display lg:text-sm text-xl transition duration-300 ease-in-out`;
+  const classes = `py-xs block border-b-2 ${borderColor} hover:border-pumpkin focus:border-battleshipGrey font-semibold lg:font-body font-display lg:text-sm text-xl transition duration-300 ease-in-out`;
 
   return (
     <li className="px-lg flex items-center lg:mb-0 mb-lg">
-      <Link href={path}>
-        <a className={classes}>{label}</a>
-      </Link>
+      {path ? (
+        <Link href={path}>
+          <a className={classes}>{label}</a>
+        </Link>
+      ) : (
+        <a href={href} className={classes}>
+          {label}
+        </a>
+      )}
     </li>
   );
 };
 
 MenuItem.propTypes = {
   path: PropTypes.string,
+  href: PropTypes.string,
   label: PropTypes.string.isRequired,
 };
 
@@ -61,12 +68,19 @@ const Navbar = () => {
             <MenuItem path="/gestion-locative" label="Gestion locative" />
             <MenuItem path="/presentation" label="Présentation" />
             <MenuItem path="/honoraires" label="Honoraires" />
-            <MenuItem path="/pro" label="Accès Propriétaires" />
-            <MenuItem path="/loc" label="Accès Locataire" />
+            <MenuItem
+              href="https://www.enova-gerance.com/interface_proprietaire/acces.aspx"
+              label="Accès Propriétaires"
+            />
+            <MenuItem
+              href="https://www.enova-gerance.com/interface_locataire/acces.aspx"
+              label="Accès Locataire"
+            />
           </ul>
-          <a className="btn">
-            <Link href="/contact">Contactez-nous</Link>
-          </a>
+
+          <Link href="/contact">
+            <a className="btn">Contactez-nous </a>
+          </Link>
         </div>
 
         <button

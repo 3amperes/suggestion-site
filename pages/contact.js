@@ -13,7 +13,7 @@ export default function Home() {
       <Hero
         surTitle="Vous souhaitez"
         title="Être contacté"
-        imgPath="/images/contact/intro"
+        imgPath="contact/intro@2x.jpg"
       />
 
       <section className="mb-4xl">

@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Layout from '@components/layout';
 import '../styles.css';
@@ -6,7 +7,9 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Layout>
-        <Component {...pageProps} />
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} />
+        </AnimatePresence>
       </Layout>
     </>
   );

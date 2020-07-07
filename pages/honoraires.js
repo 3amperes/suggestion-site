@@ -13,7 +13,7 @@ export default function Home() {
       <Hero
         surTitle="Consultez"
         title="Nos honoraires"
-        imgPath="/images/honoraires/intro"
+        imgPath="honoraires/intro@2x.jpg"
       />
 
       <section className="mb-4xl">
@@ -208,9 +208,9 @@ export default function Home() {
                 personnalisé ?
               </p>
               <p>
-                <a className="btn">
-                  <Link href="/contact">Contactez-nous</Link>
-                </a>
+                <Link href="/contact">
+                  <a className="btn">Contactez-nous</a>
+                </Link>
               </p>
             </div>
           </div>
@@ -226,11 +226,9 @@ export default function Home() {
             avantages <br /> dont vous pouvez bénéficier ?
           </p>
           <p>
-            <a className="link">
-              <Link href="/gestion-locative">
-                Notre offre de gestion locative
-              </Link>
-            </a>
+            <Link href="/gestion-locative">
+              <a className="link">Notre offre de gestion locative</a>
+            </Link>
           </p>
         </div>
       </section>

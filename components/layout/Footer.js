@@ -50,7 +50,9 @@ const Footer = () => {
               <p className="mb-2xl font-display text-xl">
                 Vous souhaitez nous faire part de votre projet ?
               </p>
-              <button className="btn">Prenons rendez-vous</button>
+              <Link href="/contact">
+                <a className="btn">Prenons rendez-vous</a>
+              </Link>
             </div>
           </div>
         </div>
@@ -58,9 +60,9 @@ const Footer = () => {
       <footer className="text-center py-xl bg-silver text-xs">
         ©2020 - Suggestion, gestion immobilière et de patrimoine à
         Rennes&nbsp;—&nbsp;
-        <a className="underline cursor-pointer">
-          <Link href="/mentions">Mention Légales</Link>
-        </a>
+        <Link href="/mentions">
+          <a className="underline cursor-pointer">Mention Légales</a>
+        </Link>
       </footer>
     </>
   );

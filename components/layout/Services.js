@@ -1,4 +1,4 @@
-import React from 'react';
+import Link from 'next/link';
 
 const Services = () => (
   <section className="py-4xl bg-paleGrey text-center ">
@@ -63,7 +63,9 @@ const Services = () => (
           <p className="mb-lg">
             Une sélection de biens en location pour répondre à votre recherche.
           </p>
-          <a className="link">Gestion locative</a>
+          <Link href="/gestion-locative">
+            <a className="link">Gestion locative</a>
+          </Link>
         </div>
         <div className="lg:w-1/6 w-1/2 px-lg mb-3xl">
           <div className="pictogramme mb-2xl">
@@ -98,7 +100,7 @@ const Services = () => (
             Des solutions pratiques et efficaces pour la gestion de vos biens
             immobiliers
           </p>
-          <a className="link">Offre de location</a>
+          {/* <a className="link">Offre de location</a> */}
         </div>
       </div>
     </div>

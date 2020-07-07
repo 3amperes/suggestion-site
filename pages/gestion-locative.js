@@ -13,7 +13,7 @@ export default function Home() {
       <Hero
         surTitle="Notre solution"
         title="Gestion locative"
-        imgPath="/images/gestion-locative/intro"
+        imgPath="gestion-locative/intro@2x.jpg"
       />
 
       {/* Section One */}
@@ -499,9 +499,10 @@ export default function Home() {
                   souhaitez un devis personnalisé ou simplement plus
                   d’information sur notre offre de gestion locative ?
                 </p>
-                <a className="link">
-                  <Link href="/contact">Contactez-nous</Link>
-                </a>
+
+                <Link href="/contact">
+                  <a className="link">Contactez-nous </a>
+                </Link>
               </div>
             </div>
           </div>

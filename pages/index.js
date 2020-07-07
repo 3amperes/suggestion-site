@@ -1,5 +1,7 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Hero from '@components/layout/Hero';
+import Image from '@components/Image';
 import Services from '@components/layout/Services';
 
 export default function Home() {
@@ -13,7 +15,7 @@ export default function Home() {
       <Hero
         surTitle="Pour vous, nous allons"
         title="Gérer, valoriser et optimiser votre patrimoine immobilier"
-        imgPath="/images/homepage/intro"
+        imgPath="homepage/intro@2x.jpg"
       >
         Notre métier est de vous accompagner dans la gestion quotidienne de vos
         biens.
@@ -24,11 +26,9 @@ export default function Home() {
         <div className="container">
           <div className="flex md:flex-row flex-col items-center -mx-lg">
             <div className="xl:w-1/3 lg:ml-2col md:w-1/2 w-full px-lg md:mb-0 mb-xl">
-              <div style={{ height: 474 }}>
-                <img
-                  src="/images/homepage/section-one.jpg"
-                  srcSet="/images/homepage/section-one@2x.jpg 2x, /images/homepage/section-one@3x.jpg 3x"
-                  alt=""
+              <div style={{ height: 474 }} className="image-wrapper">
+                <Image
+                  path="homepage/section-one@2x.jpg"
                   className="object-none h-full w-full"
                 />
               </div>
@@ -46,7 +46,9 @@ export default function Home() {
                   C’est la solution pour vous dégager du temps et vous soulager
                   de tous les désagréments liés à l’activité de location.
                 </p>
-                <a className="link">Découvrez notre offre</a>
+                <Link href="/honoraires">
+                  <a className="link">Découvrez notre offre</a>
+                </Link>
               </div>
             </div>
           </div>
@@ -59,11 +61,9 @@ export default function Home() {
           <div className="flex md:flex-row flex-col items-center -mx-lg">
             {/* image */}
             <div className="xl:w-1/3 md:w-1/2 w-full md:order-last px-lg xl:ml-3col lg:ml-1col  md:mb-0 mb-xl">
-              <div style={{ height: 474 }}>
-                <img
-                  src="/images/homepage/section-two.jpg"
-                  srcSet="/images/homepage/section-two@2x.jpg 2x, /images/homepage/section-two@3x.jpg 3x"
-                  alt=""
+              <div style={{ height: 474 }} className="image-wrapper">
+                <Image
+                  path="homepage/section-two@2x.jpg"
                   className="object-none h-full w-full"
                 />
               </div>
@@ -79,7 +79,7 @@ export default function Home() {
                   le montage de votre dossier et les visites de nos biens en
                   location.
                 </p>
-                <a className="link">Consultez nos annonces</a>
+                {/* <a className="link">Consultez nos annonces</a> */}
               </div>
             </div>
           </div>
