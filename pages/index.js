@@ -8,8 +8,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Suggestion</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Suggestion • Accueil</title>
       </Head>
 
       <Hero
