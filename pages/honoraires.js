@@ -35,10 +35,9 @@ export default function Home() {
               title="Les honoraires de gestion courantes"
             >
               <p>
-                Ils correspondent au taux de gestistrongon conclu dans votre
-                mandat, soit{' '}
-                <strong className="text-pumpkin">7,20% TTC (6% ht)</strong> et
-                comprennent les tâches courantes de gestion de votre bien.
+                Ils correspondent au taux de gestion conclu dans votre mandat,
+                soit <strong className="text-pumpkin">7,20% TTC (6% ht)</strong>{' '}
+                et comprennent les tâches courantes de gestion de votre bien.
               </p>
             </NumberSection>
             <NumberSection number={2} title="Les honoraires annexes">

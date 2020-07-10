@@ -45,7 +45,7 @@ export default function Home() {
       <section className="mb-4xl">
         <div className="container">
           <div className="flex md:flex-row flex-col items-start -mx-lg">
-            <div className="xl:w-7/24 lg:ml-3col md:w-1/3 w-full px-lg">
+            <div className="xl:w-7/24 lg:ml-3col md:w-1/3 w-full px-lg md:mb-0 mb-2xl">
               <div style={{ height: 539 }} className="image-wrapper">
                 <Image
                   path="presentation/portrait@2x.jpg"
@@ -67,11 +67,11 @@ export default function Home() {
                 patrimoine.
               </p>
               <p>
-                Notre rôle Évaluer le potentiel de votre patrimoine, fixer vos
-                objectifs de développement patrimonial, déterminer une stratégie
-                d’investissement et de placement pour y parvenir et mettre en
-                place les solutions de gestion pour vous accompagner au
-                quotidien.
+                Notre rôle est d’évaluer le potentiel de votre patrimoine, de
+                fixer vos objectifs de développement patrimonial, de déterminer
+                une stratégie d’investissement et de placement pour y parvenir
+                et mettre en place les solutions de gestion pour vous
+                accompagner au quotidien.
               </p>
             </div>
           </div>

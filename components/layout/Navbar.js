@@ -49,7 +49,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="absolute w-full top-0 z-10 text-greyishBrownTwo bg-white">
+    <nav className="absolute w-full top-0 z-30 text-greyishBrownTwo bg-white">
       <div className="container flex items-center" style={{ height: 68 }}>
         <Link href="/">
           <a className="fill-current mr-auto">
@@ -63,7 +63,11 @@ const Navbar = () => {
             isOpen ? 'translate-y-0' : '-translate-y-full'
           } lg:translate-y-0`}
         >
-          <Logo className="fill-current lg:hidden" />
+          <Link href="/">
+            <a>
+              <Logo className="fill-current lg:hidden" />
+            </a>
+          </Link>
           <ul className="flex flex-col lg:flex-row items-center justify-center mx-auto">
             <MenuItem path="/gestion-locative" label="Gestion locative" />
             <MenuItem path="/presentation" label="Présentation" />

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Hero from '@components/layout/Hero';
+import Image from '@components/Image';
 import Services from '@components/layout/Services';
 
 export default function Home() {
@@ -457,8 +458,12 @@ export default function Home() {
                 <div className="text-center lg:text-left">
                   <h3>Et plus encore</h3>
                   <p>
-                    Contactez-nous pour une présentation détaillée de nos
-                    services.
+                    <Link href="/contact">
+                      <a>
+                        Contactez-nous pour une présentation détaillée de nos
+                        services.
+                      </a>
+                    </Link>
                   </p>
                 </div>
               </div>
@@ -471,11 +476,9 @@ export default function Home() {
         <div className="container">
           <div className="flex md:flex-row flex-col items-center -mx-lg">
             <div className="xl:w-1/3 lg:ml-2col md:w-1/2 w-full px-lg md:mb-0 mb-xl">
-              <div style={{ height: 474 }}>
-                <img
-                  src="/images/homepage/section-one.jpg"
-                  srcSet="/images/homepage/section-one@2x.jpg 2x, /images/homepage/section-one@3x.jpg 3x"
-                  alt=""
+              <div style={{ height: 474 }} className="image-wrapper">
+                <Image
+                  path="homepage/section-one@2x.jpg"
                   className="object-none h-full w-full"
                 />
               </div>
@@ -483,7 +486,9 @@ export default function Home() {
             <div className="xl:w-1/3 md:w-1/2 xl:ml-3col lg:ml-1col px-lg">
               <div className="md:max-w-320">
                 <p className="surtitle">La garantie d’obtenir</p>
-                <h2>Les + suggestion</h2>
+                <h2>
+                  Les + <span className="uppercase">suggestion</span>
+                </h2>
                 <ul className="list">
                   <li>
                     Un gestionnaire unique et dédié, mettant votre satisfaction

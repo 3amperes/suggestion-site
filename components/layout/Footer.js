@@ -13,6 +13,7 @@ const Footer = () => {
                 L’immobilier <br /> en mode <br /> mains libres
               </p>
               <address className="not-italic">
+                <a href="tel:+33688301415">06 88 30 14 15</a> <br />
                 14, Quai Richemont
                 <br /> 35000 Rennes
               </address>

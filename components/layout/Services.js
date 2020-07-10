@@ -100,7 +100,9 @@ const Services = () => (
             Des solutions pratiques et efficaces pour la gestion de vos biens
             immobiliers
           </p>
-          {/* <a className="link">Offre de location</a> */}
+          <Link href="/annonces">
+            <a className="link">Offre de location</a>
+          </Link>
         </div>
       </div>
     </div>

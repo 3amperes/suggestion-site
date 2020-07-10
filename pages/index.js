@@ -24,7 +24,7 @@ export default function Home() {
       <section className="mb-4xl">
         <div className="container">
           <div className="flex md:flex-row flex-col items-center -mx-lg">
-            <div className="xl:w-1/3 lg:ml-2col md:w-1/2 w-full px-lg md:mb-0 mb-xl">
+            <div className="xl:w-1/3 lg:ml-2col md:w-1/2 order-last md:order-first w-full px-lg md:mb-0 mb-xl">
               <div style={{ height: 474 }} className="image-wrapper">
                 <Image
                   path="homepage/section-one@2x.jpg"
@@ -32,7 +32,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 xl:ml-3col lg:ml-1col px-lg">
+            <div className="xl:w-1/3 md:w-1/2 xl:ml-3col lg:ml-1col px-lg md:mb-0 mb-xl">
               <div className="md:max-w-320">
                 <p className="surtitle">Notre idée pour vous investisseurs</p>
                 <h2>L’immobilier en mode mains libres</h2>
@@ -45,9 +45,11 @@ export default function Home() {
                   C’est la solution pour vous dégager du temps et vous soulager
                   de tous les désagréments liés à l’activité de location.
                 </p>
-                <Link href="/honoraires">
-                  <a className="link">Découvrez notre offre</a>
-                </Link>
+                <p>
+                  <Link href="/gestion-locative">
+                    <a className="link">Découvrez notre offre</a>
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
@@ -58,17 +60,8 @@ export default function Home() {
       <section className="mb-4xl">
         <div className="container">
           <div className="flex md:flex-row flex-col items-center -mx-lg">
-            {/* image */}
-            <div className="xl:w-1/3 md:w-1/2 w-full md:order-last px-lg xl:ml-3col lg:ml-1col  md:mb-0 mb-xl">
-              <div style={{ height: 474 }} className="image-wrapper">
-                <Image
-                  path="homepage/section-two@2x.jpg"
-                  className="object-none h-full w-full"
-                />
-              </div>
-            </div>
             {/* contenu */}
-            <div className="xl:w-3/12 md:w-1/2 px-lg xl:ml-4col lg:ml-2col">
+            <div className="xl:w-3/12 md:w-1/2 px-lg xl:ml-4col lg:ml-2col md:mb-0 mb-xl">
               <div className="max-width-320">
                 <p className="surtitle">Suggestion c’est aussi</p>
                 <h2>Un catalogue d’offres locatives</h2>
@@ -78,7 +71,21 @@ export default function Home() {
                   le montage de votre dossier et les visites de nos biens en
                   location.
                 </p>
-                {/* <a className="link">Consultez nos annonces</a> */}
+                <p>
+                  <Link href="/annonces">
+                    <a className="link">Consultez nos annonces</a>
+                  </Link>
+                </p>
+              </div>
+            </div>
+
+            {/* image */}
+            <div className="xl:w-1/3 md:w-1/2 w-full px-lg xl:ml-3col lg:ml-1col  md:mb-0 mb-xl">
+              <div style={{ height: 474 }} className="image-wrapper">
+                <Image
+                  path="homepage/section-two@2x.jpg"
+                  className="object-none h-full w-full"
+                />
               </div>
             </div>
           </div>
