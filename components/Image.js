@@ -1,14 +1,15 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
+
+const variants = {
+  exit: { opacity: 0, transition: { duration: 0.3 } },
+  enter: {
+    opacity: 1,
+    transition: { duration: 0.3 },
+  },
+};
 
 const Image = ({ path, alt, ...rest }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  const onLoad = () => {
-    console.log('image is loaded');
-    setImageLoaded(true);
-  };
-
   return (
     <picture {...rest}>
       <source srcSet={require(`images/${path}?webp`)} type="image/webp" />
@@ -22,12 +23,11 @@ const Image = ({ path, alt, ...rest }) => {
         }}
         className="absolute inset-0 h-full w-full object-cover object-center "
       />
-      <img
+      <motion.img
+        variants={variants}
         alt={alt}
         src={require(`images/${path}`)}
-        onLoad={onLoad}
-        style={{ opacity: imageLoaded ? 1 : 0 }}
-        className="transition duration-500 ease-in-out  absolute inset-0 h-full w-full object-cover object-center"
+        className="transition duration-500 ease-in-out absolute inset-0 h-full w-full object-cover object-center"
       />
     </picture>
   );
