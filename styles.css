@@ -38,13 +38,13 @@ input[type='tel']:focus {
 }
 
 .radio {
-  @apply flex mb-md cursor-pointer;
+  @apply flex items-center mb-md cursor-pointer;
 }
 
-input[type='radio'] ~ svg .active {
+input[type='radio'] ~ div .active {
   @apply opacity-0;
 }
-input[type='radio']:checked ~ svg .active {
+input[type='radio']:checked ~ div .active {
   @apply opacity-100;
 }
 

@@ -9,7 +9,7 @@ module.exports = {
     },
     container: {
       center: true,
-      padding: '1rem',
+      padding: '2rem',
     },
     fontFamily: {
       display: ['freight-display-pro', 'serif'],
