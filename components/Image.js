@@ -20,7 +20,7 @@ const Image = ({ path, alt, ...rest }) => {
           backgroundSize: 'cover',
           filter: 'blur(10px)',
         }}
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-center "
       />
       <img
         alt={alt}
