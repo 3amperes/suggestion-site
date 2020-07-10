@@ -35,6 +35,10 @@ function App({ Component, pageProps }) {
         />
         <meta name="msapplication-TileColor" content="#e87a00" />
         <meta name="theme-color" content="#ffffff" />
+        <meta
+          name="description"
+          content="Gérer, valoriser et optimiser votre patrimoine immobilier"
+        ></meta>
       </Head>
 
       <Layout>
