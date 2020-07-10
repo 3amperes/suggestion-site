@@ -10,10 +10,11 @@ const variants = {
 };
 
 const Image = ({ path, alt, ...rest }) => {
+  // const oneSize = require(`images/${path}?resize&size=300`);
+  const multipleSizes = require(`images/${path}?resize&sizes[]=300&sizes[]=600&sizes[]=1000`);
   return (
     <picture {...rest}>
       <source srcSet={require(`images/${path}?webp`)} type="image/webp" />
-      <source srcSet={require(`images/${path}?lqip`)} type="image/jpeg" />
       <source srcSet={require(`images/${path}`)} type="image/jpeg" />
       <div
         style={{
@@ -26,7 +27,8 @@ const Image = ({ path, alt, ...rest }) => {
       <motion.img
         variants={variants}
         alt={alt}
-        src={require(`images/${path}`)}
+        srcSet={multipleSizes.srcSet}
+        src={multipleSizes.src}
         className="transition duration-500 ease-in-out absolute inset-0 h-full w-full object-cover object-center"
       />
     </picture>
