@@ -39,6 +39,14 @@ function App({ Component, pageProps }) {
           name="description"
           content="Gérer, valoriser et optimiser votre patrimoine immobilier"
         ></meta>
+        <meta property="og:title" content="Suggestion" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Gérer, valoriser et optimiser votre patrimoine immobilier"
+        />
+        <meta property="og:url" content="http://www.suggestion-conseil.fr" />
+        <meta property="og:image" content="/intro.jpg" />
       </Head>
 
       <Layout>
