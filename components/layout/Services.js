@@ -63,8 +63,9 @@ const Services = () => (
           <p className="mb-lg">
             Une sélection de biens en location pour répondre à votre recherche.
           </p>
-          <Link href="/gestion-locative">
-            <a className="link">Gestion locative</a>
+
+          <Link href="/annonces">
+            <a className="link">Offre de location</a>
           </Link>
         </div>
         <div className="lg:w-1/6 w-1/2 px-lg mb-3xl">
@@ -100,8 +101,8 @@ const Services = () => (
             Des solutions pratiques et efficaces pour la gestion de vos biens
             immobiliers
           </p>
-          <Link href="/annonces">
-            <a className="link">Offre de location</a>
+          <Link href="/gestion-locative">
+            <a className="link">Gestion locative</a>
           </Link>
         </div>
       </div>

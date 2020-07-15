@@ -21,29 +21,35 @@ const Footer = () => {
             <nav className="xl:w-7/24 lg:w-1/3 w-full px-lg mb-3xl lg:mb-0">
               <ul className="pt-2xl">
                 <li className="mb-xl">
-                  <Link href="/">
+                  <Link href="/gestion-locative">
                     <a className="block">Gestion locative</a>
                   </Link>
                 </li>
                 <li className="mb-xl">
-                  <Link href="/">
+                  <Link href="/presentation">
                     <a className="block">Présentation</a>
                   </Link>
                 </li>
                 <li className="mb-xl">
-                  <Link href="/">
+                  <Link href="/honoraires">
                     <a className="block">Honoraires</a>
                   </Link>
                 </li>
                 <li className="mb-xl">
-                  <Link href="/">
-                    <a className="block">Accès proprétaire</a>
-                  </Link>
+                  <a
+                    href="https://www.enova-gerance.com/interface_proprietaire/acces.aspx"
+                    className="block"
+                  >
+                    Accès proprétaire
+                  </a>
                 </li>
                 <li className="mb-xl">
-                  <Link href="/">
-                    <a className="block">Accès locataire</a>
-                  </Link>
+                  <a
+                    href="https://www.enova-gerance.com/interface_locataire/acces.aspx"
+                    className="block"
+                  >
+                    Accès locataire
+                  </a>
                 </li>
               </ul>
             </nav>
