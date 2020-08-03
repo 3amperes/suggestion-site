@@ -8,7 +8,10 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Suggestion • Accueil</title>
+        <title>
+          Suggestion • Conseil & gestion locative dans l&apos;immobilier à
+          Rennes
+        </title>
       </Head>
 
       <Hero
