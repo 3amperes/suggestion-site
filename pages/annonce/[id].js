@@ -1,26 +1,27 @@
 // rent.js
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Link from 'next/link';
-import { getAllRents, getSingleRent } from '@lib/api';
+import { getAllAdverts, getSingleAdvert } from '@lib/api';
 
-const Rent = ({ title, rentReference }) => {
+const Advert = ({ title, rentReference }) => {
   return (
     <article>
       <Head>
         <title>Rents • {title}</title>
       </Head>
-      <p>{rentReference}</p>
-      <h1>{title}</h1>
-      <Link href="/rents">
-        <a>Back</a>
-      </Link>
+
+      <div style={{ paddingTop: 68 }}>
+        <div className="container">
+          <p>{rentReference}</p>
+          <h1>{title}</h1>
+        </div>
+      </div>
     </article>
   );
 };
 
 export async function getStaticPaths() {
-  const allRents = await getAllRents();
+  const allRents = await getAllAdverts();
   return {
     paths:
       allRents?.map((post) => ({
@@ -33,15 +34,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const rent = await getSingleRent({ id: params.id });
+  const rent = await getSingleAdvert({ id: params.id });
   return {
     props: { ...rent },
   };
 }
 
-Rent.propTypes = {
+Advert.propTypes = {
   rentReference: PropTypes.string,
   title: PropTypes.string,
 };
 
-export default Rent;
+export default Advert;

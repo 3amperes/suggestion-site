@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getRents } from '@lib/api';
+import { getAdverts } from '@lib/api';
 import Map from '@components/map';
 
 const Wrapper = styled.div`
@@ -72,7 +72,7 @@ function Rents({ items = [] }) {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const items = await getRents();
+  const items = await getAdverts();
   // By returning { props: posts }, the Blog component
   // will receive `posts` as a prop at build time
   return {
