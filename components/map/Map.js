@@ -12,13 +12,6 @@ import { lineString } from '@turf/helpers';
 import bbox from '@turf/bbox';
 import Pins from './Pins';
 
-// do this
-let Geocoder;
-
-if (typeof window !== 'undefined') {
-  Geocoder = require('react-map-gl-geocoder').default;
-}
-
 const DEFAULT_LOCATION = {
   latitude: 48.117268,
   longitude: -1.677793,
@@ -48,8 +41,8 @@ const scaleControlStyle = {
 function Map({ places }) {
   const mapRef = useRef(null);
   const [viewport, setViewport] = useState({
-    width: 600,
-    height: 400,
+    width: 540,
+    height: 540,
     zoom: 12,
     ...DEFAULT_LOCATION,
   });
@@ -136,13 +129,6 @@ function Map({ places }) {
       <div style={scaleControlStyle}>
         <ScaleControl />
       </div>
-      {/* <Geocoder
-        mapRef={mapRef}
-        onResult={(d) => console.log(d)}
-        onViewportChange={handleViewportChange}
-        mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
-        position="top-right"
-      /> */}
     </ReactMapGL>
   );
 }

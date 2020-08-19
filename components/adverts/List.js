@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
-import Link from 'next/link';
+import Item from './Item';
 
 const List = ({ items }) => (
   <ul>
-    {items.map(({ _id, name }) => (
-      <li key={_id}>
-        <Link href={`/annonce/[id]`} as={`/annonce/${_id}`}>
-          <a>{name}</a>
-        </Link>
+    {items.map(({ _id, ...item }) => (
+      <li key={_id} className="mb-2xl">
+        <Item {...item} />
       </li>
     ))}
   </ul>

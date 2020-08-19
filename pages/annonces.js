@@ -2,17 +2,16 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Services from '@components/layout/Services';
 import EmptyAdverts from '@components/adverts/Empty';
-import AdvertsList from '@components/adverts/List';
+import Item from '@components/adverts/Item';
 import Map from '@components/map';
-import { getAdverts } from '@lib/api';
+import { getRents } from '@lib/api';
 
 export default function Adverts({ items }) {
-  console.log({ items });
   const hasAdverts = items.length > 0;
-  const places = items.map(({ coordinates: { lat, lng }, name }) => ({
+  const places = items.map(({ coordinates: { lat, lng }, title }) => ({
     lat,
     lng,
-    name,
+    title,
   }));
   return (
     <div>
@@ -26,11 +25,17 @@ export default function Adverts({ items }) {
       {hasAdverts ? (
         <div style={{ paddingTop: 68 }}>
           <div className="container">
-            <div className="flex py-3xl px-1col">
-              <div className="w-1/2">
-                <AdvertsList items={items} />
+            <div className="flex py-3xl">
+              <div className="w-3/4">
+                <ul>
+                  {items.map(({ _id, ...item }) => (
+                    <li key={_id} className="mb-2xl">
+                      <Item {...item} />
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="w-1/2">
+              <div className="w-5/12">
                 <Map places={places} />
               </div>
             </div>
@@ -46,7 +51,7 @@ export default function Adverts({ items }) {
 }
 
 export async function getStaticProps() {
-  const items = await getAdverts();
+  const items = await getRents();
   return {
     props: {
       items,

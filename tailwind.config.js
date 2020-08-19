@@ -31,6 +31,7 @@ module.exports = {
       greyishBrownTwo: '#535353',
       battleshipGrey: '#6f7274',
       literalDown: '#d8d8d8',
+      literalMed: '#afafaf',
       silver: '#ebeded',
       paleGrey: '#f4f8fa',
       white: '#fff',
