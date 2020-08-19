@@ -67,22 +67,36 @@ export default function Home() {
                 />
               </label>
 
+              <label className="block">
+                <p className="surtitle mb-xl">Votre message</p>
+                <textarea
+                  name="message"
+                  placeholder="Saisissez votre message"
+                  className="w-full"
+                  rows="3"
+                ></textarea>
+              </label>
+
               <fieldset className="my-3xl">
                 <p className="mb-md">Votre demande concerne</p>
                 <label className="radio">
-                  <input type="radio" value="gestion-locative" name="object" />
+                  <input
+                    type="checkbox"
+                    value="gestion-locative"
+                    name="object"
+                  />
                   <Checkbox />
                   <span className="font-bold ml-md">La gestion locative</span>
                 </label>
                 <label className="radio">
-                  <input type="radio" value="conseil" name="object" />
+                  <input type="checkbox" value="conseil" name="object" />
                   <Checkbox />
                   <span className="font-bold ml-md">
                     Le conseil en gestion de patrimoine
                   </span>
                 </label>
                 <label className="radio">
-                  <input type="radio" value="location" name="object" />
+                  <input type="checkbox" value="location" name="object" />
                   <Checkbox />
                   <span className="font-bold ml-md">
                     Notre offre de location

@@ -22,18 +22,21 @@ p + p {
   @apply mt-2xl;
 }
 
-input {
+input,
+textarea {
   @apply appearance-none bg-transparent;
 }
 
 input[type='text'],
 input[type='email'],
-input[type='tel'] {
+input[type='tel'],
+textarea {
   @apply border-b py-sm leading-tight;
 }
 input[type='text']:focus,
 input[type='email']:focus,
-input[type='tel']:focus {
+input[type='tel']:focus,
+textarea:focus {
   @apply outline-none border-pumpkin;
 }
 
@@ -41,10 +44,10 @@ input[type='tel']:focus {
   @apply flex items-center mb-md cursor-pointer;
 }
 
-input[type='radio'] ~ div .active {
+input[type='checkbox'] ~ div .active {
   @apply opacity-0;
 }
-input[type='radio']:checked ~ div .active {
+input[type='checkbox']:checked ~ div .active {
   @apply opacity-100;
 }
 
