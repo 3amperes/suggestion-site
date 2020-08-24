@@ -99,37 +99,40 @@ function Map({ places }) {
   }, []);
 
   return (
-    <ReactMapGL
-      {...viewport}
-      ref={mapRef}
-      onViewportChange={handleViewportChange}
-      mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
-    >
-      <Pins places={places} onClick={setSelectedPlace} />
-      {selectedPlace && (
-        <Popup
-          tipSize={5}
-          anchor="top"
-          closeOnClick={false}
-          latitude={selectedPlace.lat}
-          longitude={selectedPlace.lng}
-          onClose={() => setSelectedPlace(null)}
-        >
-          <div>
-            <h2>{selectedPlace.name}</h2>
-          </div>
-        </Popup>
-      )}
-      <div style={fullscreenControlStyle}>
-        <FullscreenControl />
-      </div>
-      <div style={navStyle}>
-        <NavigationControl />
-      </div>
-      <div style={scaleControlStyle}>
-        <ScaleControl />
-      </div>
-    </ReactMapGL>
+    <div className="embed-responsive aspect-ratio-square">
+      <ReactMapGL
+        {...viewport}
+        ref={mapRef}
+        onViewportChange={handleViewportChange}
+        mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
+        className="embed-responsive-item"
+      >
+        <Pins places={places} onClick={setSelectedPlace} />
+        {selectedPlace && (
+          <Popup
+            tipSize={5}
+            anchor="top"
+            closeOnClick={false}
+            latitude={selectedPlace.lat}
+            longitude={selectedPlace.lng}
+            onClose={() => setSelectedPlace(null)}
+          >
+            <div>
+              <h2>{selectedPlace.name}</h2>
+            </div>
+          </Popup>
+        )}
+        <div style={fullscreenControlStyle}>
+          <FullscreenControl />
+        </div>
+        <div style={navStyle}>
+          <NavigationControl />
+        </div>
+        <div style={scaleControlStyle}>
+          <ScaleControl />
+        </div>
+      </ReactMapGL>
+    </div>
   );
 }
 

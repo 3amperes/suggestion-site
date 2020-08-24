@@ -65,6 +65,13 @@ module.exports = {
       '3col': '168px',
       '4col': '224px',
     },
+    aspectRatio: {
+      none: 0,
+      square: [1, 1],
+      '16/9': [16, 9],
+      '4/3': [4, 3],
+      '21/9': [21, 9],
+    },
     extend: {
       width: {
         '1/24': '4.16%',
@@ -74,5 +81,8 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('tailwindcss-responsive-embed'),
+    require('tailwindcss-aspect-ratio'),
+  ],
 };
