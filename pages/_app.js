@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Layout from '@components/layout';
 import '../styles.css';
+// import Swiper styles
+import 'swiper/swiper-bundle.css';
 
 function App({ Component, pageProps }) {
   return (

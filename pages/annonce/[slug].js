@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { getAllRents, getSingleRent } from '@lib/api';
 import client from '@lib/sanity';
 import BlockContent from '@sanity/block-content-to-react';
+import Slider from '@components/Slider';
 
 const Advert = ({
   slug,
@@ -84,7 +85,9 @@ const Advert = ({
                 </div>
               )}
             </div>
-            <div className="w-1/2">gallery</div>
+            <div className="w-1/2 pl-xl">
+              <Slider items={gallery} />
+            </div>
           </div>
         </div>
       </div>
