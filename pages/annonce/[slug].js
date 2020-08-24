@@ -5,6 +5,11 @@ import { getAllRents, getSingleRent } from '@lib/api';
 import client from '@lib/sanity';
 import BlockContent from '@sanity/block-content-to-react';
 import Slider from '@components/Slider';
+import {
+  Accordion,
+  AccordionTitle,
+  AccordionPanel,
+} from '@components/Accordion';
 
 const Advert = ({
   slug,
@@ -37,7 +42,8 @@ const Advert = ({
       <div style={{ paddingTop: 68 }}>
         <div className="container my-2xl">
           <div className="flex">
-            <div className="w-1/2">
+            <div className="w-1/12" />
+            <div className="w-9/24">
               <header>
                 <h1 className="text-2xl text-greyishBrownTwo font-bold mb-0">
                   {title}
@@ -45,7 +51,7 @@ const Advert = ({
                 <h2 className="text-xl text-literalMed font-normal mb-0">
                   {getSubtitle()}
                 </h2>
-                <div className="flex py-lg my-lg border-t border-b border-literalDown border-opacity-50">
+                <div className="flex thin-border">
                   <div className="w-1/3">
                     <span className="uppercase text-greyishBrownTwo text-xs font-semibold">
                       Surface Habitable
@@ -73,7 +79,7 @@ const Advert = ({
                 </div>
               </header>
               {description && (
-                <div>
+                <div className="thin-border mb-3xl">
                   <span className="uppercase text-greyishBrownTwo text-xs font-semibold">
                     Description
                   </span>
@@ -84,7 +90,65 @@ const Advert = ({
                   />
                 </div>
               )}
+              {details && details.length > 0 && (
+                <Accordion className="thin-border">
+                  <AccordionTitle>Caractéristiques détaillées</AccordionTitle>
+                  <AccordionPanel>
+                    <dl className="pl-2xl">
+                      {details.map(({ label, desc }, index) => (
+                        <div
+                          key={index}
+                          className={`flex py-sm border-paleGrey ${
+                            index > 0 ? 'border-t' : ''
+                          }`}
+                        >
+                          <dt className="w-1/2 text-battleshipGrey capitalize">
+                            {label}
+                          </dt>
+                          <dd className="w-1/2 font-semibold capitalize">
+                            {desc}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </AccordionPanel>
+                </Accordion>
+              )}
+              {priceDetail && priceDetail.length > 0 && (
+                <Accordion className="thin-border">
+                  <AccordionTitle>Détail du prix</AccordionTitle>
+                  <AccordionPanel>
+                    <dl className="pl-2xl">
+                      {priceDetail.map(({ label, desc }, index) => (
+                        <div
+                          key={index}
+                          className={`flex py-sm border-paleGrey ${
+                            index > 0 ? 'border-t' : ''
+                          }`}
+                        >
+                          <dt className="w-1/2 text-battleshipGrey capitalize">
+                            {label}
+                          </dt>
+                          <dd className="w-1/2 font-semibold capitalize">
+                            {desc} €
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </AccordionPanel>
+                </Accordion>
+              )}
+              {(dpe || ges) && (
+                <Accordion className="thin-border">
+                  <AccordionTitle>Classes due - ges</AccordionTitle>
+                  <AccordionPanel>
+                    <div>{dpe} KWh/m²/an</div>
+                    <div>{ges} Kg éq CO2/m²/an</div>
+                  </AccordionPanel>
+                </Accordion>
+              )}
             </div>
+            <div className="w-1/24" />
             <div className="w-1/2 pl-xl">
               <Slider items={gallery} />
             </div>

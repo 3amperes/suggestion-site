@@ -223,3 +223,7 @@ table th {
 .image-wrapper {
   @apply relative overflow-hidden;
 }
+
+.thin-border {
+  @apply pt-lg mt-lg border-t border-literalDown border-opacity-50;
+}
