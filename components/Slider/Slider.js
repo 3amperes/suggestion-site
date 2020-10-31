@@ -8,6 +8,9 @@ import { urlFor } from '@lib/sanity';
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 const Slider = ({ items }) => {
+  if (!items || items.length <= 0) {
+    return null;
+  }
   return (
     <Swiper
       spaceBetween={0}
@@ -17,8 +20,8 @@ const Slider = ({ items }) => {
         prevEl: '.slider-button-prev',
       }}
       pagination={{ clickable: false, type: 'fraction' }}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
     >
       {items &&
         items.map((item, index) => {
@@ -32,24 +35,28 @@ const Slider = ({ items }) => {
             </SwiperSlide>
           );
         })}
-      <div className="slider-button-prev" role="button">
-        <svg
-          width="10"
-          viewBox="0 0 8.09 16.37"
-          className="fill-current transform rotate-90"
-        >
-          <use xlinkHref="#arrow" />
-        </svg>
-      </div>
-      <div className="slider-button-next" role="button">
-        <svg
-          width="10"
-          viewBox="0 0 8.09 16.37"
-          className="fill-current transform -rotate-90"
-        >
-          <use xlinkHref="#arrow" />
-        </svg>
-      </div>
+      {items.length > 1 && (
+        <>
+          <div className="slider-button-prev" role="button">
+            <svg
+              width="10"
+              viewBox="0 0 8.09 16.37"
+              className="fill-current transform rotate-90"
+            >
+              <use xlinkHref="#arrow" />
+            </svg>
+          </div>
+          <div className="slider-button-next" role="button">
+            <svg
+              width="10"
+              viewBox="0 0 8.09 16.37"
+              className="fill-current transform -rotate-90"
+            >
+              <use xlinkHref="#arrow" />
+            </svg>
+          </div>
+        </>
+      )}
     </Swiper>
   );
 };

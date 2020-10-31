@@ -142,8 +142,16 @@ const Advert = ({
                 <Accordion className="thin-border">
                   <AccordionTitle>Classes due - ges</AccordionTitle>
                   <AccordionPanel>
-                    <div>{dpe} KWh/m²/an</div>
-                    <div>{ges} Kg éq CO2/m²/an</div>
+                    <p>
+                      Consommation énergétique&nbsp;:&nbsp;
+                      <br />
+                      <strong>{dpe}&nbsp;KWh/m²/an</strong>
+                    </p>
+                    <p>
+                      Émission de gaz à effet de serre&nbsp;:&nbsp;
+                      <br />
+                      <strong>{ges}:&nbsp;Kg éq CO2/m²/an</strong>
+                    </p>
                   </AccordionPanel>
                 </Accordion>
               )}

@@ -18,7 +18,7 @@ const Accordion = ({ children, ...rest }) => {
 };
 
 Accordion.propTypes = {
-  children: PropTypes.func.isRequired,
+  children: PropTypes.array.isRequired,
 };
 
 export default Accordion;
