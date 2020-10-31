@@ -42,6 +42,7 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "babel-plugin-styled-components": "^1.11.1",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
@@ -53,5 +54,17 @@
     "responsive-loader": "^2.0.0",
     "sharp": "^0.25.4",
     "stylelint-config-recommended": "^3.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-emoji"
+    },
+    "cz-emoji": {
+      "symbol": true,
+      "skipQuestions": [
+        "scope",
+        "issues"
+      ]
+    }
   }
 }
