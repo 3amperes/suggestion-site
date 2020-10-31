@@ -3,7 +3,7 @@ import Hero from '@components/layout/Hero';
 import NumberSection from '@components/layout/NumberSection';
 import Services from '@components/layout/Services';
 
-export default function Home() {
+export default function Mentions() {
   return (
     <div>
       <Head>

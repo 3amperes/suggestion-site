@@ -31,6 +31,7 @@ module.exports = {
       greyishBrownTwo: '#535353',
       battleshipGrey: '#6f7274',
       literalDown: '#d8d8d8',
+      literalMed: '#afafaf',
       silver: '#ebeded',
       paleGrey: '#f4f8fa',
       white: '#fff',
@@ -64,14 +65,25 @@ module.exports = {
       '3col': '168px',
       '4col': '224px',
     },
+    aspectRatio: {
+      none: 0,
+      square: [1, 1],
+      '16/9': [16, 9],
+      '4/3': [4, 3],
+      '21/9': [21, 9],
+    },
     extend: {
       width: {
         '1/24': '4.16%',
         '3/24': '12.5%',
         '7/24': '29.16%',
+        '9/24': '37.5%',
       },
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('tailwindcss-responsive-embed'),
+    require('tailwindcss-aspect-ratio'),
+  ],
 };

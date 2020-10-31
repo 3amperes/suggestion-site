@@ -3,7 +3,7 @@ import Hero from '@components/layout/Hero';
 import Services from '@components/layout/Services';
 import Checkbox from '@components/Checkbox';
 
-export default function Home() {
+export default function Contact() {
   return (
     <div>
       <Head>

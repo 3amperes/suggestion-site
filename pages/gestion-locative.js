@@ -4,7 +4,7 @@ import Hero from '@components/layout/Hero';
 import Image from '@components/Image';
 import Services from '@components/layout/Services';
 
-export default function Home() {
+export default function RentalManagement() {
   return (
     <div>
       <Head>

@@ -186,8 +186,44 @@ table th {
   @apply text-left text-greyishBrown font-semibold border-b-2 border-silver text-xs uppercase mb-0 py-xs;
 }
 
+.swiper-pagination {
+  @apply text-white text-lg font-semibold;
+}
+
+.slider-button-prev,
+.slider-button-next {
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  opacity: 0.3;
+  border: solid 2px white;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  transition: opacity 250ms ease-in;
+  transform: translateY(-50%);
+}
+.slider-button-prev:hover,
+.slider-button-next:hover {
+  opacity: 1;
+}
+.slider-button-prev {
+  left: 1rem;
+}
+.slider-button-next {
+  right: 1rem;
+}
+
 @tailwind utilities;
 
 .image-wrapper {
   @apply relative overflow-hidden;
+}
+
+.thin-border {
+  @apply pt-lg mt-lg border-t border-literalDown border-opacity-50;
 }

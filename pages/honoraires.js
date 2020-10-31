@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Hero from '@components/layout/Hero';
 import NumberSection from '@components/layout/NumberSection';
 
-export default function Home() {
+export default function Pricing() {
   return (
     <div>
       <Head>
