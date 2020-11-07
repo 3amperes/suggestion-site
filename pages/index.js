@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Hero from '@components/layout/Hero';
-import Image from '@components/Image';
+import Image from 'next/image';
 import Services from '@components/layout/Services';
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
       <Hero
         surTitle="Pour vous, nous allons"
         title="Gérer, valoriser et optimiser votre patrimoine immobilier"
-        imgPath="homepage/intro@2x.jpg"
+        image="/images/homepage/intro@2x.jpg"
       >
         Notre métier est de vous accompagner dans la gestion quotidienne de vos
         biens.
@@ -30,8 +30,9 @@ export default function Home() {
             <div className="xl:w-1/3 lg:ml-2col md:w-1/2 order-last md:order-first w-full px-lg md:mb-0 mb-xl">
               <div style={{ height: 474 }} className="image-wrapper">
                 <Image
-                  path="homepage/section-one@2x.jpg"
+                  src="/images/homepage/section-one@2x.jpg"
                   className="object-none h-full w-full"
+                  layout="fill"
                 />
               </div>
             </div>
@@ -86,8 +87,9 @@ export default function Home() {
             <div className="xl:w-1/3 md:w-1/2 w-full px-lg xl:ml-3col lg:ml-1col  md:mb-0 mb-xl">
               <div style={{ height: 474 }} className="image-wrapper">
                 <Image
-                  path="homepage/section-two@2x.jpg"
+                  src="/images/homepage/section-two@2x.jpg"
                   className="object-none h-full w-full"
+                  layout="fill"
                 />
               </div>
             </div>

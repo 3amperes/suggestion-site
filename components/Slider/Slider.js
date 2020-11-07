@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { urlFor } from '@lib/sanity';
+import Image from 'next/image';
 
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y]);
@@ -20,6 +21,7 @@ const Slider = ({ items }) => {
         prevEl: '.slider-button-prev',
       }}
       pagination={{ clickable: false, type: 'fraction' }}
+      height="400px"
       // onSlideChange={() => console.log('slide change')}
       // onSwiper={(swiper) => console.log(swiper)}
     >
@@ -27,10 +29,12 @@ const Slider = ({ items }) => {
         items.map((item, index) => {
           return (
             <SwiperSlide key={index}>
-              <img
-                src={urlFor(item).auto('format').size(360, 240).url()}
+              <Image
+                src={urlFor(item).auto('format').size(720, 480).url()}
                 alt={item.alt}
                 className="w-full"
+                width={720}
+                height={480}
               />
             </SwiperSlide>
           );

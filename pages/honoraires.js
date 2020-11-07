@@ -13,7 +13,7 @@ export default function Pricing() {
       <Hero
         surTitle="Consultez"
         title="Nos honoraires"
-        imgPath="honoraires/intro@2x.jpg"
+        image="/images/honoraires/intro@2x.jpg"
       />
 
       <section className="mb-4xl">

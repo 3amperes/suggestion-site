@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import Image from 'next/image';
 import { urlFor } from '@lib/sanity';
 
 const Item = ({ slug, title, city, sector, area, price, thumbnail }) => {
@@ -8,9 +9,11 @@ const Item = ({ slug, title, city, sector, area, price, thumbnail }) => {
       <a>
         <article className="md:flex">
           <div className="w-full md:w-1/2">
-            <img
-              src={urlFor(thumbnail).auto('format').size(360, 240).url()}
+            <Image
+              src={urlFor(thumbnail).auto('format').size(720, 480).url()}
               alt={thumbnail.alt}
+              width={720}
+              height={480}
               className="w-full"
             />
           </div>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import Image from '@components/Image';
+import Image from 'next/image';
 
 let easing = [0.175, 0.85, 0.42, 0.96];
 
@@ -13,7 +13,7 @@ const variants = {
   },
 };
 
-const Hero = ({ surTitle, title, imgPath, children }) => {
+const Hero = ({ surTitle, title, image, children }) => {
   const onClick = () => {
     if (typeof window === 'undefined') return;
     window.scroll({
@@ -28,9 +28,9 @@ const Hero = ({ surTitle, title, imgPath, children }) => {
         variants={variants}
         className="relative h-full overflow-hidden"
       >
-        {imgPath && (
+        {image && (
           <>
-            <Image path={imgPath} className="absolute inset-0 object-cover" />
+            <Image src={image} layout="fill" className="absolute inset-0 object-cover" />
             <div
               className="absolute inset-0 opacity-25"
               style={{
@@ -75,7 +75,7 @@ const Hero = ({ surTitle, title, imgPath, children }) => {
 Hero.propTypes = {
   surTitle: PropTypes.string,
   title: PropTypes.string,
-  imgPath: PropTypes.string,
+  image: PropTypes.string,
   children: PropTypes.string,
 };
 

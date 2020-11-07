@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Hero from '@components/layout/Hero';
 import Services from '@components/layout/Services';
-import Image from '@components/Image';
+import Image from 'next/image';
 
 export default function Presentation() {
   return (
@@ -13,7 +13,7 @@ export default function Presentation() {
       <Hero
         surTitle="Prenons le temps et"
         title="Faisons connaissance"
-        imgPath="presentation/intro@2x.jpg"
+        image="/images/presentation/intro@2x.jpg"
       />
 
       <section className="mb-4xl">
@@ -48,8 +48,9 @@ export default function Presentation() {
             <div className="xl:w-7/24 lg:ml-3col md:w-1/3 w-full px-lg md:mb-0 mb-2xl">
               <div style={{ height: 539 }} className="image-wrapper">
                 <Image
-                  path="presentation/portrait@2x.jpg"
+                  src="/images/presentation/portrait@2x.jpg"
                   className="object-none h-full w-full"
+                  layout="fill"
                 />
               </div>
             </div>

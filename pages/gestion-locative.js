@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Hero from '@components/layout/Hero';
-import Image from '@components/Image';
+import Image from 'next/image';
 import Services from '@components/layout/Services';
 
 export default function RentalManagement() {
@@ -14,7 +14,7 @@ export default function RentalManagement() {
       <Hero
         surTitle="Notre solution"
         title="Gestion locative"
-        imgPath="gestion-locative/intro@2x.jpg"
+        image="/images/gestion-locative/intro@2x.jpg"
       />
 
       {/* Section One */}
@@ -478,8 +478,9 @@ export default function RentalManagement() {
             <div className="xl:w-1/3 lg:ml-2col md:w-1/2 w-full px-lg md:mb-0 mb-xl">
               <div style={{ height: 474 }} className="image-wrapper">
                 <Image
-                  path="homepage/section-one@2x.jpg"
+                  src="/images/homepage/section-one@2x.jpg"
                   className="object-none h-full w-full"
+                  layout="fill"
                 />
               </div>
             </div>
