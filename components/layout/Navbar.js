@@ -73,6 +73,7 @@ const Navbar = () => {
             <MenuItem path="/presentation" label="Présentation" />
             <MenuItem path="/honoraires" label="Honoraires" />
             <MenuItem path="/annonces" label="Annonces" />
+            <MenuItem path="/posts" label="Journal" />
             <MenuItem
               href="https://www.enova-gerance.com/interface_proprietaire/acces.aspx"
               label="Accès Propriétaires"
