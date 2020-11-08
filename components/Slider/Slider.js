@@ -4,6 +4,8 @@ import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { urlFor } from '@lib/sanity';
 import Image from 'next/image';
+// import Swiper styles
+import 'swiper/swiper-bundle.css';
 
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y]);

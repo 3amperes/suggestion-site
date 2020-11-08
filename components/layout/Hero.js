@@ -13,7 +13,7 @@ const variants = {
   },
 };
 
-const Hero = ({ surTitle, title, image, children }) => {
+const Hero = ({ surTitle, title, image, imgBase64, children }) => {
   const onClick = () => {
     if (typeof window === 'undefined') return;
     window.scroll({
@@ -28,17 +28,43 @@ const Hero = ({ surTitle, title, image, children }) => {
         variants={variants}
         className="relative h-full overflow-hidden"
       >
-        {image && (
+        {image ? (
           <>
-            <Image src={image} layout="fill" className="absolute inset-0 object-cover" />
-            <div
-              className="absolute inset-0 opacity-25"
-              style={{
-                backgroundImage:
-                  'linear-gradient(to left, transparent, #033b4e)',
-              }}
+            {imgBase64 && (
+              <img
+                aria-hidden="true"
+                alt=""
+                src={imgBase64}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  width: '100%',
+                  height: '100%',
+                  /* Adjust the content to fit */
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  /* Blur the image and scale to avoid transparent corners */
+                  filter: 'blur(2rem)',
+                  transform: 'scale(1.2)',
+                }}
+              />
+            )}
+            <Image
+              src={image}
+              layout="fill"
+              className="absolute inset-0 object-cover"
             />
           </>
+        ) : (
+          <div
+            className="absolute inset-0 opacity-25"
+            style={{
+              backgroundImage: 'linear-gradient(to left, transparent, #033b4e)',
+            }}
+          />
         )}
         <div className="container mx-auto h-full px-lg">
           <div className="h-full text-white flex items-center relative z-1 -mx-lg">
@@ -76,6 +102,7 @@ Hero.propTypes = {
   surTitle: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.string,
+  imgBase64: PropTypes.string,
   children: PropTypes.string,
 };
 

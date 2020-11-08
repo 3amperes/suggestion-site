@@ -1,9 +1,23 @@
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Hero from '@components/layout/Hero';
 import Services from '@components/layout/Services';
 import Checkbox from '@components/Checkbox';
+import { getBase64 } from 'next-placeholder';
 
-export default function Contact() {
+const imgSrc = '/images/contact/intro@2x.jpg';
+
+export async function getStaticProps() {
+  const imgBase64 = await getBase64(imgSrc);
+
+  return {
+    props: {
+      imgBase64,
+    },
+  };
+}
+
+function ContactPage({ imgBase64 }) {
   return (
     <div>
       <Head>
@@ -13,7 +27,8 @@ export default function Contact() {
       <Hero
         surTitle="Vous souhaitez"
         title="Être contacté"
-        image="/images/contact/intro@2x.jpg"
+        image={imgSrc}
+        imgBase64={imgBase64}
       />
 
       <section className="mb-4xl">
@@ -116,3 +131,9 @@ export default function Contact() {
     </div>
   );
 }
+
+ContactPage.propTypes = {
+  imgBase64: PropTypes.string,
+};
+
+export default ContactPage;

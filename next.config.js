@@ -12,15 +12,3 @@ const nextConfig = {
     domains: ['cdn.sanity.io'],
   },
 };
-
-module.exports = withPlugins(
-  [
-    optimizedImages({
-      responsive: {
-        adapter: require('responsive-loader/sharp'),
-      },
-    }),
-    { handleImages: ['jpeg', 'png'] },
-  ],
-  nextConfig
-);

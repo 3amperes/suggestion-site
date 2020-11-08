@@ -1,10 +1,14 @@
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Link from 'next/link';
 import Hero from '@components/layout/Hero';
 import Image from 'next/image';
 import Services from '@components/layout/Services';
+import { getBase64 } from 'next-placeholder';
 
-export default function Home() {
+const imgSrc = '/images/homepage/intro@2x.jpg';
+
+function HomePage({ imgBase64 }) {
   return (
     <div>
       <Head>
@@ -17,7 +21,8 @@ export default function Home() {
       <Hero
         surTitle="Pour vous, nous allons"
         title="Gérer, valoriser et optimiser votre patrimoine immobilier"
-        image="/images/homepage/intro@2x.jpg"
+        image={imgSrc}
+        imgBase64={imgBase64}
       >
         Notre métier est de vous accompagner dans la gestion quotidienne de vos
         biens.
@@ -100,4 +105,20 @@ export default function Home() {
       <Services />
     </div>
   );
+}
+
+HomePage.propTypes = {
+  imgBase64: PropTypes.string,
+};
+
+export default HomePage;
+
+export async function getStaticProps() {
+  const imgBase64 = await getBase64(imgSrc);
+
+  return {
+    props: {
+      imgBase64,
+    },
+  };
 }
