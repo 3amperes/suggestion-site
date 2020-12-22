@@ -41,9 +41,9 @@ const Advert = ({
 
       <div style={{ paddingTop: 68 }}>
         <div className="container my-2xl">
-          <div className="flex">
-            <div className="w-1/12" />
-            <div className="w-9/24">
+          <div className="flex flex-wrap">
+            <div className="lg:w-1/12 lg:block hidden" />
+            <div className="lg:w-9/24 w-full">
               <header>
                 <h1 className="text-2xl text-greyishBrownTwo font-bold mb-0">
                   {title}
@@ -156,8 +156,8 @@ const Advert = ({
                 </Accordion>
               )}
             </div>
-            <div className="w-1/24" />
-            <div className="w-1/2 pl-xl">
+            <div className="w-1/24 lg:block hidden" />
+            <div className="lg:w-1/2 lg:pl-xl w-full lg:mt-0 mt-lg">
               <Slider items={gallery} />
             </div>
           </div>
