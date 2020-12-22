@@ -53,9 +53,14 @@ function Map({ places }) {
     setViewport({ ...viewport, ...nextViewport });
   };
 
-  const fitViewportFromPlaces = useCallback((places) => {
+  const fitViewportFromPlaces = useCallback(() => {
+    const placesArray =
+      places.length < 2
+        ? [{ lat: 48.117268, lng: -1.677793, title: 'hey' }, ...places]
+        : places;
+
     const feature = lineString(
-      places.map(({ lat, lng }) => [lng, lat]),
+      placesArray.map(({ lat, lng }) => [lng, lat]),
       { name: 'bounds' }
     );
     const [minLng, minLat, maxLng, maxLat] = bbox(feature);
