@@ -17,7 +17,7 @@ export default function Posts({ items }) {
           <Hero
             surTitle="Consultez"
             title="Nos articles"
-            imgPath="gestion-locative/intro@2x.jpg"
+            imgPath="honoraires/intro@2x.jpg"
           />
           <div className="container">
             <div className="lg:mx-3col py-3xl">
