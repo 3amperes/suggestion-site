@@ -10,7 +10,6 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Suggestion</title>
 
         <link
           rel="apple-touch-icon"
@@ -41,14 +40,15 @@ function App({ Component, pageProps }) {
           name="description"
           content="Gérer, valoriser et optimiser votre patrimoine immobilier"
         ></meta>
-        <meta property="og:title" content="Suggestion" />
+        <meta property="og:title" content="Suggestion" key="meta-title" />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
           content="Gérer, valoriser et optimiser votre patrimoine immobilier"
+          key="meta-desc"
         />
         <meta property="og:url" content="http://www.suggestion-conseil.fr" />
-        <meta property="og:image" content="/intro.jpg" />
+        <meta property="og:image" content="/intro.jpg" key="meta-img" />
       </Head>
 
       <Layout>

@@ -10,7 +10,7 @@ const Item = ({ slug, title, thumbnail }) => {
           <img
             src={urlFor(thumbnail).auto('format').size(720, 480).url()}
             alt={thumbnail.alt}
-            className="w-full"
+            className="w-full block mb-lg"
           />
           <h2 className="mb-0 text-xl text-greyishBrownTwo">{title}</h2>
         </article>
