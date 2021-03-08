@@ -4,7 +4,7 @@ import { urlFor } from '@lib/sanity';
 
 const Item = ({ slug, title, city, sector, area, price, thumbnail }) => {
   return (
-    <Link href={`/annonce/[slug]`} as={`/annonce/${slug}`}>
+    <Link href={`/annonces/${slug}`}>
       <a>
         <article className="md:flex">
           <div className="w-full md:w-1/2">

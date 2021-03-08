@@ -11,6 +11,13 @@ const nextConfig = {
 };
 
 module.exports = withPlugins(
-  [optimizedImages, { handleImages: ['jpeg', 'png'] }],
+  [
+    optimizedImages({
+      responsive: {
+        adapter: require('responsive-loader/sharp'),
+      },
+    }),
+    { handleImages: ['jpeg', 'png'] },
+  ],
   nextConfig
 );

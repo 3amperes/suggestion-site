@@ -7,4 +7,6 @@
     X-Content-Type-Options = "nosniff"
     Vary = "Accept-Encoding"
 [[plugins]]
-package = "netlify-plugin-cache-nextjs"
+  package = "netlify-plugin-cache-nextjs"
+[context.staging.environment]
+  NEXT_PUBLIC_SANITY_DATASET = "staging"
