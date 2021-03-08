@@ -1,17 +1,17 @@
 // rent.js
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import { getAllPosts, getSinglePost } from '@lib/api';
 import client, { urlFor } from '@lib/sanity';
 import BlockContent from '@sanity/block-content-to-react';
+import Metas from '@components/Metas'
 
 const Post = (props) => {
-  const { title, thumbnail, description } = props;
+  const { title, thumbnail, description, date } = props;
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const publishedDate = new Date(date)
   return (
     <article>
-      <Head>
-        <title>Suggestion • {title}</title>
-      </Head>
+      <Metas title={title} imgSrc={urlFor(thumbnail).auto('format').size(720, 480).url()}/>
 
       <div style={{ paddingTop: 68 }}>
         <div className="container">
@@ -20,6 +20,7 @@ const Post = (props) => {
               <h1 className="text-2xl text-greyishBrownTwo font-bold mb-0">
                 {title}
               </h1>
+              <p className="text-literalMed">le {publishedDate.toLocaleDateString('fr', options)}</p>
             </header>
             <img
               src={urlFor(thumbnail).auto('format').size(720, 480).url()}
@@ -65,6 +66,7 @@ export async function getStaticProps({ params }) {
 Post.propTypes = {
   slug: PropTypes.string,
   title: PropTypes.string,
+  date: PropTypes.string,
   thumbnail: PropTypes.object,
   description: PropTypes.array,
 };

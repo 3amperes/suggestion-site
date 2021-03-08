@@ -1,25 +1,23 @@
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import Services from '@components/layout/Services';
 import { getPosts } from '@lib/api';
 import Hero from '@components/layout/Hero';
 import EmptyPosts from '@components/posts/Empty';
 import Item from '@components/posts/Item';
+import Metas from '@components/Metas'
 
 export default function Posts({ items }) {
   const hasPosts = items.length > 0;
   return (
     <div>
-      <Head>
-        <title>Suggestion • Journal</title>
-      </Head>
+      <Metas title="journal"/>
 
       {hasPosts ? (
         <>
           <Hero
             surTitle="Consultez"
             title="Nos articles"
-            image="/images/gestion-locative/intro@2x.jpg"
+            imgPath="gestion-locative/intro@2x.jpg"
           />
           <div className="container">
             <div className="lg:mx-3col py-3xl">

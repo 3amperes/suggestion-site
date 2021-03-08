@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { getAllRents, getSingleRent } from '@lib/api';
-import client from '@lib/sanity';
+import client, {urlFor} from '@lib/sanity';
 import BlockContent from '@sanity/block-content-to-react';
 import Slider from '@components/Slider';
 import {
@@ -10,6 +10,8 @@ import {
   AccordionTitle,
   AccordionPanel,
 } from '@components/Accordion';
+import Metas from '@components/Metas';
+
 
 const Advert = ({
   slug,
@@ -24,6 +26,7 @@ const Advert = ({
   price,
   priceDetail,
   gallery,
+  thumbnail
 }) => {
   function getSubtitle() {
     if (sector) {
@@ -34,9 +37,7 @@ const Advert = ({
   return (
     <article>
       <Head>
-        <title>
-          Suggestion • Annonce de location [{slug}] • {title}
-        </title>
+        <Metas title={`Annonce de location [${slug}]`} description={title} imgSrc={urlFor(thumbnail).auto('format').size(360, 240).url()}/>
       </Head>
 
       <div style={{ paddingTop: 68 }}>
@@ -192,6 +193,7 @@ Advert.propTypes = {
   title: PropTypes.string,
   city: PropTypes.string,
   sector: PropTypes.string,
+  thumbnail: PropTypes.string,
   area: PropTypes.number,
   description: PropTypes.array,
   details: PropTypes.array,

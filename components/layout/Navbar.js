@@ -8,7 +8,7 @@ const MenuItem = ({ path, href, label }) => {
   const router = useRouter();
 
   const borderColor =
-    router.asPath === path ? 'border-greyishBrownTwo' : 'border-transparent';
+    router.asPath.includes(path) ? 'border-greyishBrownTwo' : 'border-transparent';
 
   const classes = `py-xs block border-b-2 ${borderColor} hover:border-pumpkin focus:border-battleshipGrey font-semibold lg:font-body font-display lg:text-sm text-xl transition duration-300 ease-in-out`;
 
