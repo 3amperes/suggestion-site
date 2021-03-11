@@ -61,10 +61,22 @@ input[type='checkbox']:checked ~ div .active {
   @apply pb-xl pl-xl;
 }
 
+.block-content ul {
+  @apply py-lg pl-xl;
+}
+
+.block-content {
+  @apply py-xl;
+}
+
 .list li {
   @apply mb-xl relative;
 }
-.list li:before {
+.block-content li {
+  @apply mb-lg relative;
+}
+.list li:before,
+.block-content ul li:before {
   content: '';
   display: inline-block;
   width: 8px;
@@ -74,26 +86,31 @@ input[type='checkbox']:checked ~ div .active {
   @apply bg-pumpkin absolute;
 }
 
-.surtitle {
+.surtitle,
+.block-content h2 {
   @apply text-xs font-semibold uppercase mb-0;
 }
 
 .link,
 .btn,
 .btn:after,
+.block-content a,
 input {
   @apply transition duration-300 ease-in-out cursor-pointer;
 }
 
-.link {
+.link,
+.block-content a {
   @apply font-semibold inline-block py-xs border-b-2 border-pumpkin cursor-pointer;
 }
 
-.link:hover {
+.link:hover,
+.block-content a:hover {
   @apply border-greyishBrownTwo;
 }
 
-.link:focus {
+.link:focus,
+.block-content a:focus {
   @apply border-battleshipGrey text-battleshipGrey;
 }
 
