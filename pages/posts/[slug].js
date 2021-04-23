@@ -6,7 +6,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import Metas from '@components/Metas';
 
 const Post = (props) => {
-  const { title, thumbnail, description, date } = props;
+  const { title, thumbnail, description, date, excerpt } = props;
   const options = {
     weekday: 'long',
     year: 'numeric',
@@ -19,7 +19,7 @@ const Post = (props) => {
       <Metas
         title={title}
         imgSrc={urlFor(thumbnail).auto('format').size(720, 480).url()}
-        description={description}
+        description={excerpt}
       />
 
       <div style={{ paddingTop: 68 }}>
@@ -78,6 +78,7 @@ Post.propTypes = {
   slug: PropTypes.string,
   title: PropTypes.string,
   date: PropTypes.string,
+  excerpt: PropTypes.string,
   thumbnail: PropTypes.object,
   description: PropTypes.array,
 };
