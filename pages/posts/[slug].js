@@ -19,6 +19,7 @@ const Post = (props) => {
       <Metas
         title={title}
         imgSrc={urlFor(thumbnail).auto('format').size(720, 480).url()}
+        description={description}
       />
 
       <div style={{ paddingTop: 68 }}>

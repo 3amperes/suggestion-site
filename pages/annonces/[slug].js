@@ -1,7 +1,7 @@
 // rent.js
 import PropTypes from 'prop-types';
 import { getAllRents, getSingleRent } from '@lib/api';
-import client, {urlFor} from '@lib/sanity';
+import client, { urlFor } from '@lib/sanity';
 import BlockContent from '@sanity/block-content-to-react';
 import Slider from '@components/Slider';
 import {
@@ -10,7 +10,6 @@ import {
   AccordionPanel,
 } from '@components/Accordion';
 import Metas from '@components/Metas';
-
 
 const Advert = ({
   slug,
@@ -25,7 +24,7 @@ const Advert = ({
   price,
   priceDetail,
   gallery,
-  thumbnail
+  thumbnail,
 }) => {
   function getSubtitle() {
     if (sector) {
@@ -35,7 +34,11 @@ const Advert = ({
   }
   return (
     <article>
-        <Metas title={`Annonce de location [${slug}]`} description={title} imgSrc={urlFor(thumbnail).auto('format').size(360, 240).url()}/>
+      <Metas
+        title={`Annonce de location [${slug}]`}
+        description={title}
+        imgSrc={urlFor(thumbnail).auto('format').size(360, 240).url()}
+      />
 
       <div style={{ paddingTop: 68 }}>
         <div className="container my-2xl">

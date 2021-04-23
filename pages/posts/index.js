@@ -4,13 +4,14 @@ import { getPosts } from '@lib/api';
 import Hero from '@components/layout/Hero';
 import EmptyPosts from '@components/posts/Empty';
 import Item from '@components/posts/Item';
-import Metas from '@components/Metas'
+import Metas from '@components/Metas';
 
 export default function Posts({ items }) {
   const hasPosts = items.length > 0;
+  console.log(items);
   return (
     <div>
-      <Metas title="journal"/>
+      <Metas title="journal" />
 
       {hasPosts ? (
         <>
