@@ -10,7 +10,6 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -49,6 +48,11 @@ function App({ Component, pageProps }) {
         />
         <meta property="og:url" content="http://www.suggestion-conseil.fr" />
         <meta property="og:image" content="/intro.jpg" key="meta-img" />
+
+        <meta
+          name="facebook-domain-verification"
+          content="m41y7mvidc1tp7dka5uil5jwt5ofpo"
+        />
       </Head>
 
       <Layout>
