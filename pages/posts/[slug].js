@@ -24,7 +24,7 @@ const Post = (props) => {
 
       <div style={{ paddingTop: 68 }}>
         <div className="container">
-          <div className="w-1/2 m-auto mt-3xl">
+          <div className="lg-w-1/2 w-full m-auto mt-3xl">
             <header className="mb-2xl">
               <h1 className="text-2xl text-greyishBrownTwo font-bold mb-0">
                 {title}
