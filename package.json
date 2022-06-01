@@ -52,7 +52,7 @@
     "globby": "^11.0.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "2.2.0",
-    "sharp": "^0.27.2",
+    "sharp": "^0.30.5",
     "stylelint-config-recommended": "^3.0.0"
   },
   "config": {
